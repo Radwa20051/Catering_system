@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.catering.ui.main.MainShellController" fx:id="appRoot" styleClass="app-shell">
+    <left>
+        <VBox spacing="8" styleClass="sidebar">
+            <padding>
+                <Insets top="20" right="10" bottom="20" left="10"/>
+            </padding>
+            <Label text="Smart Catering" styleClass="sidebar-brand"/>
+            <Label text="Operations Suite" styleClass="sidebar-sub"/>
+            <Separator/>
+            <Button fx:id="navDashboard" text="Dashboard" onAction="#openDashboard" styleClass="side-nav-btn"/>
+            <Button fx:id="navNewOrder" text="New Order" onAction="#openNewOrder" styleClass="side-nav-btn"/>
+            <Button fx:id="navOrders" text="Orders" onAction="#openOrders" styleClass="side-nav-btn"/>
+            <Button fx:id="navCalendar" text="Calendar" onAction="#openCalendar" styleClass="side-nav-btn"/>
+            <Button fx:id="navCustomers" text="Customers" onAction="#openCustomers" styleClass="side-nav-btn"/>
+            <Button fx:id="navTracking" text="Tracking" onAction="#openTracking" styleClass="side-nav-btn"/>
+            <Button fx:id="navNotifications" text="Notifications" onAction="#openNotifications" styleClass="side-nav-btn"/>
+            <Button fx:id="navSettings" text="Settings" onAction="#openSettings" styleClass="side-nav-btn"/>
+            <Separator/>
+        </VBox>
+    </left>
+    <center>
+        <VBox spacing="12" styleClass="app-shell">
+            <padding>
+                <Insets top="20" right="24" bottom="20" left="24"/>
+            </padding>
+            <VBox spacing="4">
+                <Label fx:id="pageTitle" styleClass="content-header-title" text="Dashboard"/>
+                <Label fx:id="pageSubtitle" styleClass="content-header-sub" text="Overview"/>
+            </VBox>
+            <StackPane fx:id="contentHost" styleClass="content-host" VBox.vgrow="ALWAYS"/>
+        </VBox>
+    </center>
+</BorderPane>
