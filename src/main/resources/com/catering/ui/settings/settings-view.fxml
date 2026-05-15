@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.catering.ui.settings.SettingsController"
+      spacing="12"
+      styleClass="wizard-shell">
+
+    <!-- User Information -->
+    <VBox styleClass="card-surface" spacing="12">
+
+        <Label text="User Information"
+               styleClass="field-label"/>
+
+        <VBox spacing="10">
+
+            <Label text="Name"
+                   styleClass="field-label"/>
+
+            <TextField fx:id="nameField"
+                       maxWidth="520"
+                       promptText="Your name"/>
+
+            <Label text="Email"
+                   styleClass="field-label"/>
+
+            <TextField fx:id="emailField"
+                       maxWidth="520"
+                       promptText="name@company.com"/>
+
+            <Label text="Role"
+                   styleClass="field-label"/>
+
+            <ComboBox fx:id="roleBox"
+                      maxWidth="320"
+                      promptText="Select role" styleClass="modern-combo"/>
+
+        </VBox>
+
+    </VBox>
+
+    <!-- Notifications -->
+    <VBox styleClass="card-surface" spacing="12">
+
+        <Label text="Notifications"
+               styleClass="field-label"/>
+
+        <VBox spacing="10">
+
+            <CheckBox fx:id="enableNotificationsBox"
+                      text="Enable notifications"/>
+
+            <CheckBox fx:id="orderUpdatesBox"
+                      text="Order updates"/>
+
+        </VBox>
+
+    </VBox>
+
+    <!-- Session -->
+    <VBox styleClass="card-surface" spacing="12">
+
+        <Label text="Session"
+               styleClass="field-label"/>
+
+        <VBox spacing="10">
+
+            <Label text="Sign out from the current admin session."
+                   styleClass="content-header-sub"/>
+
+            <Button text="Log Out"
+                    onAction="#onLogout"
+                    styleClass="logout-btn"
+                    prefWidth="140"
+                    prefHeight="42"/>
+
+        </VBox>
+
+    </VBox>
+
+    <!-- Save Button -->
+    <HBox spacing="12">
+
+        <padding>
+            <Insets top="4"/>
+        </padding>
+
+        <Button text="Save Settings"
+                onAction="#onSaveSettings"
+                styleClass="primary-btn"/>
+
+    </HBox>
+
+</VBox>
