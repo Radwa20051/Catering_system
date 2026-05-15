@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Pos?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.catering.ui.notifications.NotificationsController"
+      spacing="12"
+      styleClass="wizard-shell">
+
+    <VBox spacing="8"
+          styleClass="card-surface"
+          VBox.vgrow="ALWAYS">
+
+        <!-- Notifications -->
+        <StackPane VBox.vgrow="ALWAYS">
+
+            <!-- List -->
+            <ListView fx:id="notificationsList"
+                      VBox.vgrow="ALWAYS"
+                      styleClass="modern-table"/>
+
+            <!-- Empty State -->
+            <VBox fx:id="emptyStateBox"
+                  alignment="CENTER"
+                  spacing="10"
+                  mouseTransparent="true">
+
+                <Label text="🔔"
+                       style="-fx-font-size: 42px;"/>
+
+                <Label text="No recent notifications"
+                       styleClass="wizard-title"/>
+
+                <Label text="New updates and alerts will appear here."
+                       styleClass="content-header-sub"/>
+
+            </VBox>
+
+        </StackPane>
+
+    </VBox>
+
+</VBox>

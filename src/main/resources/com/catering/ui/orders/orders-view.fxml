@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.catering.ui.orders.OrdersController" spacing="12" styleClass="wizard-shell">
+    <TextField fx:id="customerSearchField" promptText="Search by customer name..." maxWidth="420" styleClass="card-surface"/>
+    <TableView fx:id="ordersTable" VBox.vgrow="ALWAYS" styleClass="card-surface,orders-table">
+        <columns>
+            <TableColumn fx:id="orderIdColumn" text="Order ID" prefWidth="110"/>
+            <TableColumn fx:id="customerColumn" text="Customer" prefWidth="160"/>
+            <TableColumn fx:id="eventColumn" text="Event" prefWidth="130"/>
+            <TableColumn fx:id="eventDateColumn" text="Event date" prefWidth="120"/>
+            <TableColumn fx:id="totalPriceColumn" text="Total Price" prefWidth="110"/>
+            <TableColumn fx:id="itemsCountColumn" text="Items" prefWidth="70"/>
+            <TableColumn fx:id="statusColumn" text="Status" prefWidth="150"/>
+            <TableColumn fx:id="actionsColumn" text="Actions" prefWidth="120"/>
+        </columns>
+    </TableView>
+</VBox>

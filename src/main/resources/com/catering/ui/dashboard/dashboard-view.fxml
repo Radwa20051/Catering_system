@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.catering.ui.dashboard.DashboardController"
+      spacing="18">
+
+    <padding>
+        <Insets top="6" right="10" bottom="8" left="0"/>
+    </padding>
+
+    <VBox spacing="2">
+
+        <Label text="Welcome back, Admin 👋"
+               styleClass="content-header-title"/>
+
+        <Label text="Here is what is happening today."
+               styleClass="content-header-sub"/>
+
+    </VBox>
+
+    <HBox spacing="14">
+        <VBox spacing="8" styleClass="dashboard-stat-card" HBox.hgrow="ALWAYS">
+            <HBox spacing="10">
+                <Label text="&#128203;" styleClass="stat-icon stat-icon-orders"/>
+                <Label text="Active Orders" styleClass="stat-card-title"/>
+            </HBox>
+            <Label fx:id="activeOrdersValue" text="0" styleClass="stat-card-value"/>
+            <Label text="Live order queue" styleClass="stat-trend"/>
+        </VBox>
+
+        <VBox spacing="8" styleClass="dashboard-stat-card" HBox.hgrow="ALWAYS">
+            <HBox spacing="10">
+                <Label text="&#128197;" styleClass="stat-icon stat-icon-events"/>
+                <Label text="Upcoming Events" styleClass="stat-card-title"/>
+            </HBox>
+            <Label fx:id="upcomingEventsValue" text="0" styleClass="stat-card-value"/>
+            <Label text="Scheduled ahead" styleClass="stat-trend"/>
+        </VBox>
+
+        <VBox spacing="8" styleClass="dashboard-stat-card" HBox.hgrow="ALWAYS">
+            <HBox spacing="10">
+                <Label text="&#128178;" styleClass="stat-icon stat-icon-payments"/>
+                <Label text="Pending Payments" styleClass="stat-card-title"/>
+            </HBox>
+            <Label fx:id="pendingPaymentsValue" text="0" styleClass="stat-card-value"/>
+            <Label text="Awaiting settlement" styleClass="stat-trend"/>
+        </VBox>
+
+        <VBox spacing="8" styleClass="dashboard-stat-card" HBox.hgrow="ALWAYS">
+            <HBox spacing="10">
+                <Label text="&#128260;" styleClass="stat-icon stat-icon-workflows"/>
+                <Label text="Open Workflows" styleClass="stat-card-title"/>
+            </HBox>
+            <Label fx:id="openWorkflowsValue" text="0" styleClass="stat-card-value"/>
+            <Label text="Pending + preparing" styleClass="stat-trend"/>
+        </VBox>
+    </HBox>
+
+    <HBox spacing="18">
+        <VBox spacing="12"
+              styleClass="dashboard-card"
+              HBox.hgrow="ALWAYS">
+            <HBox alignment="CENTER_LEFT">
+                <Label text="Recent Orders"
+                       styleClass="wizard-title"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button fx:id="viewAllOrdersButton"
+                        text="View All Orders"
+                        onAction="#onOpenOrders"
+                        styleClass="ghost-btn"/>
+            </HBox>
+
+            <TableView fx:id="recentOrdersTable"
+                       prefHeight="240"
+                       styleClass="modern-table">
+                <columns>
+                    <TableColumn fx:id="orderIdColumn"
+                                 text="Order ID"
+                                 prefWidth="120"/>
+                    <TableColumn fx:id="customerColumn"
+                                 text="Customer"
+                                 prefWidth="160"/>
+                    <TableColumn fx:id="eventColumn"
+                                 text="Event"
+                                 prefWidth="180"/>
+                    <TableColumn fx:id="statusColumn"
+                                 text="Status"
+                                 prefWidth="120"/>
+                    <TableColumn fx:id="priceColumn"
+                                 text="Total Price"
+                                 prefWidth="120"/>
+                </columns>
+            </TableView>
+        </VBox>
+
+        <VBox spacing="14"
+              styleClass="dashboard-card"
+              prefWidth="370">
+            <HBox alignment="CENTER_LEFT">
+                <Label text="Upcoming Events"
+                       styleClass="wizard-title"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button fx:id="viewCalendarButton"
+                        text="View Calendar"
+                        onAction="#onOpenCalendar"
+                        styleClass="ghost-btn"/>
+            </HBox>
+
+            <ScrollPane fitToWidth="true"
+                        fitToHeight="true"
+                        hbarPolicy="NEVER"
+                        vbarPolicy="AS_NEEDED"
+                        styleClass="dashboard-scroll">
+                <content>
+                    <VBox fx:id="upcomingEventsContainer" spacing="12"/>
+                </content>
+            </ScrollPane>
+        </VBox>
+    </HBox>
+
+    <HBox spacing="18">
+        <VBox spacing="12"
+              styleClass="dashboard-card"
+              prefWidth="450">
+            <Label text="Order Status Overview"
+                   styleClass="wizard-title"/>
+            <PieChart fx:id="statusChart"
+                      prefHeight="250"/>
+        </VBox>
+
+        <VBox spacing="14"
+              styleClass="dashboard-card"
+              HBox.hgrow="ALWAYS">
+            <Label text="Quick Actions"
+                   styleClass="wizard-title"/>
+
+            <FlowPane hgap="12" vgap="12">
+                <Button fx:id="createNewOrderButton"
+                        text="+  Create New Order"
+                        onAction="#onOpenNewOrder"
+                        styleClass="quick-action-btn"
+                        prefWidth="200"
+                        prefHeight="52"/>
+
+                <Button fx:id="openCalendarButton"
+                        text="&#128197;  Open Calendar"
+                        onAction="#onOpenCalendar"
+                        styleClass="quick-action-btn"
+                        prefWidth="200"
+                        prefHeight="52"/>
+
+                <Button fx:id="manageCustomersButton"
+                        text="&#128101;  Manage Customers"
+                        onAction="#onOpenCustomers"
+                        styleClass="quick-action-btn"
+                        prefWidth="200"
+                        prefHeight="52"/>
+
+                <Button fx:id="trackOrdersButton"
+                        text="&#128666;  Track Orders"
+                        onAction="#onOpenTracking"
+                        styleClass="quick-action-btn"
+                        prefWidth="200"
+                        prefHeight="52"/>
+            </FlowPane>
+        </VBox>
+    </HBox>
+
+</VBox>
