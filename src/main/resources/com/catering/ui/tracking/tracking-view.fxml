@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.catering.ui.tracking.TrackingController" spacing="14" styleClass="wizard-shell">
+    <TableView fx:id="ordersTable" prefHeight="320" VBox.vgrow="ALWAYS" styleClass="card-surface,modern-table">
+        <columns>
+            <TableColumn fx:id="orderIdColumn" text="Order ID" prefWidth="110"/>
+            <TableColumn fx:id="customerColumn" text="Customer" prefWidth="160"/>
+            <TableColumn fx:id="eventTypeColumn" text="Event" prefWidth="120"/>
+            <TableColumn fx:id="eventDateColumn" text="Event date" prefWidth="120"/>
+            <TableColumn fx:id="statusColumn" text="Status" prefWidth="160"/>
+        </columns>
+    </TableView>
+    <Label text="Activity log" styleClass="field-label"/>
+    <TextArea fx:id="activityArea" editable="false" prefRowCount="8" wrapText="true" styleClass="card-surface"/>
+</VBox>
